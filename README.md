@@ -10,44 +10,7 @@ To get started with this project, follow these steps:
 1-Install OpenVPN and v2ray client on your system.
 2-Download the OpenVPN configuration file from your VPN provider and save it in a directory (e.g., /etc/openvpn).
 3-Create a new file called "v2ray.json" in the same directory (/etc/openvpn) with the following contents:
-"
-{
-  "inbounds": [{
-    "port": 1080,
-    "protocol": "socks"
-  }],
-  "outbounds": [{
-    "protocol": "vmess",
-    "settings": {
-      "vnext": [{
-        "address": "<v2ray-server-address>",
-        "port": <v2ray-server-port>,
-        "users": [{
-          "id": "<v2ray-user-id>",
-          "alterId": <v2ray-alter-id>,
-          "security": "auto"
-        }]
-      }]
-    },
-    "streamSettings": {
-      "network": "tcp",
-      "tcpSettings": {
-        "header": {
-          "type": "http",
-          "request": {
-            "version": "1.1",
-            "method": "GET",
-            "path": ["/"],
-            "headers": {
-              "Host": ["<v2ray-server-domain>"]
-            }
-          }
-        }
-      }
-    }
-  }]
-}
-"
+
 Replace <v2ray-server-address> with your v2ray server address, <v2ray-server-port> with the v2ray server port, <v2ray-user-id> with your v2ray user ID, <v2ray-alter-id> with the v2ray alter ID, and <v2ray-server-domain> with the v2ray server domain.
 
 4-Start the v2ray client using the following command:  
